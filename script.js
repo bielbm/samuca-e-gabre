@@ -1,17 +1,8 @@
 function exercicio1(){
-    let x = prompt("Digite um numero entre 0 e 10");
-    let i;
-    for( i = 0; i > 1;i++ ) {
-    if(x < 0){
-     prompt("numero invalido");
-
-    } 
-    else(x >10) 
-
-     console.log("numero invalido");
-    
-    }
-
+let nota = prompt("Digite uma nota de 1 a 10:");
+while (nota>10 || nota<1){
+    nota = parseInt(prompt("Valor inválido, digite novamente"));
+}
         
 
 }
