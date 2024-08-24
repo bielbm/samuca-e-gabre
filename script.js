@@ -2,8 +2,9 @@ function exercicio1(){
     let nota = prompt("Digite uma nota de 1 a 10:\n");
     console.log("A nota digitada foi essa\n", nota);
     while (nota>10 || nota<1 || isNaN(nota) || nota.trim() ===''){
-        nota = parseInt(prompt("Valor inválido, digite novamente\n"));
+        nota = prompt("Valor inválido, digite novamente\n");
     }
+    nota = parseInt(nota);
     alert("Nota válida\n");
     console.log("Nota válida\n");
 }
@@ -31,39 +32,49 @@ function exercicio3(){
     let soma = 0;
     
     for (let i = 0; i < nota; i++) {
-    let nota = prompt(`Digite a nota ${i + 1}: `);
-    while(nota<0 || nota.trim()==='' || isNaN(nota)){
-      nota = prompt("Nota inválida, digite novamente: ");
+    let nota1 = prompt(`Digite a nota ${i + 1}: `);
+    while(nota1<0 || nota1.trim()==='' || isNaN(nota1)){
+      nota1 = prompt("Nota inválida, digite novamente: ");
       
     }
-    nota = parseFloat(nota);
-    soma += nota;
+    nota1 = parseFloat(nota);
+    soma += nota1;
     }
     
-    let media = soma / N;
+    let media = soma / nota;
     
     alert(`A média aritmética é: ${media.toFixed(2)}`);
       
 }
     
-function exercicio4(){
-    const numero = parseInt(prompt("Digite um número inteiro: "));
-      
-    function ehPrimo(numero) {
+
+function exercicio4() {
+    let numero = prompt("Digite um número inteiro");
+  
+    while (isNaN(numero) || numero.trim() === '' || !Number.isInteger(parseFloat(numero))) {
+      numero = prompt("Número inválido ou foi digitado um espaço vazio, por favor digite um número inteiro novamente");
+    }
+  
+    numero = parseInt(numero);
+  
     if (numero <= 1) {
-        return false;
+      console.log(`${numero} não é primo.`);
+      return;
     }
-    for (let i = 2; i * i <= numero; i++) {
-    if (numero % i === 0) {
-    return false;
+  
+    let isPrimo = true;
+    for (let i = 2; i <= Math.sqrt(numero); i++) {
+      if (numero % i === 0) {
+        isPrimo = false;
+        break;
+      }
     }
-    }
-    return true;
-    }
-      
-    if (ehPrimo(numero)) {
-    console.log(`${numero} é um número primo!`);
+    if (isPrimo) {
+      alert(`${numero} é um número primo.`);
+      console.log(`${numero} é um número primo.`);
     } else {
-    console.log(`${numero} não é um número primo.`);
+      alert(`${numero} não é um número primo.`);
+      console.log(`${numero} não é um número primo.`);
     }
 }
+
